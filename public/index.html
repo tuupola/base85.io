@@ -36,29 +36,29 @@
         padding-top: 50px;
     }
 
-    #data {
+    #decoded {
         color: #fff
     }
 
-    #data::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.5); }
-    #data::-moz-placeholder { color: rgba(255, 255, 255, 0.5); }
-    #data::-moz-placeholder { color: #rgba(255, 255, 255, 0.5); }
-    #data::-ms-input-placeholder { color: #rgba(255, 255, 255, 0.5); }
+    #decoded::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.5); }
+    #decoded::-moz-placeholder { color: rgba(255, 255, 255, 0.5); }
+    #decoded::-moz-placeholder { color: #rgba(255, 255, 255, 0.5); }
+    #decoded::-ms-input-placeholder { color: #rgba(255, 255, 255, 0.5); }
 
-    #base62::-webkit-input-placeholder { color: rgba(0, 0, 0, 0.5); }
-    #base62::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
-    #base62::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
-    #base62::-ms-input-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #encoded::-webkit-input-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #encoded::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #encoded::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #encoded::-ms-input-placeholder { color: rgba(0, 0, 0, 0.5); }
 
 
-    #data:focus {
+    #decoded:focus {
         background: #18bc9c
     }
     </style>
 
 </head>
 
-<body class="index" id="page-top">
+<body class="index">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -69,46 +69,47 @@
         ga('send', 'pageview');
     </script>
     <!-- Portfolio Grid Section -->
-    <section class="success" id="upper">
-        <div class="container">
-            <br><br>
-            <h2 class="text-center">Input</h2>
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="form-group floating-label-form-group controls">
-                        <textarea class="form-control" id="data" rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum eleifend tincidunt. Sed et luctus neque."></textarea>
-                    </div>
-                    <!--
-                    <br>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="string" checked> encode as string
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="integer"> encode as integer
-                        </label>
-                    </div>
-                    -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="lower">
-        <div class="container">
-            <h2 class="text-center">Base62</h2>
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="form-group floating-label-form-group controls">
-                        <textarea class="form-control" id="base62" rows="4" placeholder="2oWyjVTS29ydp687dbhTmXPJb3LJJrztYsBScmXxz8m1ZgpmHwwSYapLTo51iGJBNHMka6gRXnCvJi8c9IcL8DEXpw3DaZx5Dblhuv0KLBc52ODuzWNMWaEizxfiD5rlSMCM18pQaE11yvvbqp1KO1TKoYIcc1Q"></textarea>
+    <div id="app">
+        <section class="success">
+            <div class="container">
+                <br><br>
+                <h2 class="text-center">Input</h2>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="form-group floating-label-form-group controls">
+                            <textarea v-model="decoded" v-on:focus="lock" id="decoded" class="form-control" rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum eleifend tincidunt. Sed et luctus neque."></textarea>
+                        </div>
+                        <!--
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="string" checked> encode as string
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="integer"> encode as integer
+                            </label>
+                        </div>
+                        -->
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <section id="lower">
+            <div class="container">
+                <h2 class="text-center">Base62</h2>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="form-group floating-label-form-group controls">
+                            <textarea v-model="encoded" v-on:focus="lock" id="encoded" class="form-control" rows="4" placeholder="2oWyjVTS29ydp687dbhTmXPJb3LJJrztYsBScmXxz8m1ZgpmHwwSYapLTo51iGJBNHMka6gRXnCvJi8c9IcL8DEXpw3DaZx5Dblhuv0KLBc52ODuzWNMWaEizxfiD5rlSMCM18pQaE11yvvbqp1KO1TKoYIcc1Q"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
@@ -153,39 +154,60 @@
     </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/jquery.ns-autogrow.js"></script>
+<script src="https://unpkg.com/vue@2.3.0/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.17.4/lodash.min.js"></script>
 <script>
-$(function() {
-    $("textarea").autogrow({
-        vertical: true,
-        horizontal: false,
-        flickering: false
-    });
 
-    $("#data").bind("keyup", function() {
-        delay(function() {
-            $.post("https://api.base62.net/encode", { data: $("#data").val() }, function(data) {
-                $("#base62").val(data.encoded).trigger("change");
-            });
-        }, 200);
-    });
+var app = new Vue({
+    el: "#app",
+    data: {
+        encoded: null,
+        decoded: null,
+        error: null,
+        locked: false,
+    },
+    watch: {
+        decoded: function () {
+            if ("encoded" !== this.locked) {
+                this.encode()
+            }
+        },
+        encoded: function () {
+            if ("decoded" !== this.locked) {
+                this.decode()
+            }
+        },
+    },
+    methods: {
+        lock: function (event) {
+            this.locked = event.target.id
+        },
+        encode: _.debounce(function () {
+            var self = this
+            axios
+                .post("https://api.base62.net/encode", {data: this.decoded})
+                .then(function (response) {
+                    self.encoded = response.data.encoded
+                })
+                .catch(function (error) {
+                    self.error = "Could not reach the API: " + error
+                })
 
-    $("#base62").bind("keyup", function() {
-        delay(function() {
-            $.post("https://api.base62.net/decode", { data: $("#base62").val() }, function(data) {
-                $("#data").val(data.decoded).trigger("change");
-            });
-        }, 200);
-    });
+        }, 200),
+        decode: _.debounce(function () {
+            var self = this
+            axios
+                .post("https://api.base62.net/decode", {data: this.encoded})
+                .then(function (response) {
+                    self.decoded = response.data.decoded
+                })
+                .catch(function (error) {
+                    self.error = "Could not reach the API: " + error
+                })
 
-    var delay = (function(){
-        var timer = 0;
-        return function(callback, ms){
-            clearTimeout (timer);
-            timer = setTimeout(callback, ms);
-        };
-    })();
+        }, 200)
+    },
 });
 </script>
 </body>
