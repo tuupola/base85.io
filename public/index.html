@@ -157,7 +157,13 @@
 <script src="https://unpkg.com/vue@2.3.0/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
 <script src="https://unpkg.com/lodash@4.17.4/lodash.min.js"></script>
+<script src="js/autosize.min.js"></script>
 <script>
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    autosize(document.getElementById("encoded"))
+    autosize(document.getElementById("decoded"))
+});
 
 var app = new Vue({
     el: "#app",
@@ -166,6 +172,8 @@ var app = new Vue({
         decoded: null,
         error: null,
         locked: false,
+    },
+    created: function () {
     },
     watch: {
         decoded: function () {
@@ -189,6 +197,9 @@ var app = new Vue({
                 .post("https://api.base62.net/encode", {data: this.decoded})
                 .then(function (response) {
                     self.encoded = response.data.encoded
+                    self.$nextTick(function () {
+                        autosize.update(document.getElementById("encoded"))
+                    })
                 })
                 .catch(function (error) {
                     self.error = "Could not reach the API: " + error
@@ -201,6 +212,9 @@ var app = new Vue({
                 .post("https://api.base62.net/decode", {data: this.encoded})
                 .then(function (response) {
                     self.decoded = response.data.decoded
+                    self.$nextTick(function () {
+                        autosize.update(document.getElementById("decoded"))
+                    })
                 })
                 .catch(function (error) {
                     self.error = "Could not reach the API: " + error
