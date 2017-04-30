@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online Base62 Encoder and Decoder</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Temporary navbar container fix -->
+    <style>
+    .navbar-toggler {
+        z-index: 1;
+    }
+
+    @media (max-width: 576px) {
+        nav > .container {
+            width: 100%;
+        }
+    }
+
+    #upper {
+        padding-top: 50px;
+    }
+
+    #data {
+        color: #fff
+    }
+
+    #data::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.5); }
+    #data::-moz-placeholder { color: rgba(255, 255, 255, 0.5); }
+    #data::-moz-placeholder { color: #rgba(255, 255, 255, 0.5); }
+    #data::-ms-input-placeholder { color: #rgba(255, 255, 255, 0.5); }
+
+    #base62::-webkit-input-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #base62::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #base62::-moz-placeholder { color: rgba(0, 0, 0, 0.5); }
+    #base62::-ms-input-placeholder { color: rgba(0, 0, 0, 0.5); }
+
+
+    #data:focus {
+        background: #18bc9c
+    }
+    </style>
+
+</head>
+
+<body class="index" id="page-top">
+
+    <!-- Portfolio Grid Section -->
+    <section class="success" id="upper">
+        <div class="container">
+            <br><br>
+            <h2 class="text-center">Input</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="form-group floating-label-form-group controls">
+                        <textarea class="form-control" id="data" rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum eleifend tincidunt. Sed et luctus neque."></textarea>
+                    </div>
+                    <!--
+                    <a href="#lower" class="btn btn-primary btn-lg btn-outline">
+                        <i class="fa fa-angle-double-down"></i> Encode to Base62
+                    </a>
+                    -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="lower">
+        <div class="container">
+            <h2 class="text-center">Base62</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="form-group floating-label-form-group controls">
+                        <textarea class="form-control" id="base62" rows="4" placeholder="2oWyjVTS29ydp687dbhTmXPJb3LJJrztYsBScmXxz8m1ZgpmHwwSYapLTo51iGJBNHMka6gRXnCvJi8c9IcL8DEXpw3DaZx5Dblhuv0KLBc52ODuzWNMWaEizxfiD5rlSMCM18pQaE11yvvbqp1KO1TKoYIcc1Q"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <p></p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <p>Encoder uses the MIT licensed <a href="https://github.com/tuupola/base62">Base62 PHP library</a>.</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <!--
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                            -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Your Website 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top hidden-lg-up">
+        <a class="btn btn-primary page-scroll" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/jquery.ns-autogrow.js"></script>
+<script>
+$(function() {
+    $("textarea").autogrow({
+        vertical: true,
+        horizontal: false,
+        flickering: false
+    });
+
+    $("#data").bind("keyup", function() {
+        delay(function() {
+            $.post("http://api.base62.net/encode", { data: $("#data").val() }, function(data) {
+                $("#base62").val(data.encoded).trigger("change");
+            });
+        }, 200);
+    });
+
+    $("#base62").bind("keyup", function() {
+        delay(function() {
+            $.post("http://api.base62.net/decode", { data: $("#base62").val() }, function(data) {
+                $("#data").val(data.decoded).trigger("change");
+            });
+        }, 200);
+    });
+
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+});
+</script>
+</body>
+</html>
