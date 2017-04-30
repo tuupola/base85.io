@@ -165,7 +165,7 @@ $(function() {
 
     $("#data").bind("keyup", function() {
         delay(function() {
-            $.post("http://api.base62.net/encode", { data: $("#data").val() }, function(data) {
+            $.post("https://api.base62.net/encode", { data: $("#data").val() }, function(data) {
                 $("#base62").val(data.encoded).trigger("change");
             });
         }, 200);
@@ -173,7 +173,7 @@ $(function() {
 
     $("#base62").bind("keyup", function() {
         delay(function() {
-            $.post("http://api.base62.net/decode", { data: $("#base62").val() }, function(data) {
+            $.post("https://api.base62.net/decode", { data: $("#base62").val() }, function(data) {
                 $("#data").val(data.decoded).trigger("change");
             });
         }, 200);
