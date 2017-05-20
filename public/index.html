@@ -99,7 +99,7 @@
 
         <section id="lower">
             <div class="container">
-                <h2 class="text-center">Base62</h2>
+                <h2 class="text-center">Base85</h2>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <div class="form-group floating-label-form-group controls">
@@ -134,7 +134,7 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <p>Encoder uses the MIT licensed <a href="https://github.com/tuupola/base62">Base62 PHP library</a>.</p>
+                        <p>Encoder uses the MIT licensed <a href="https://github.com/tuupola/base85">Base85 PHP library</a>.</p>
                     </div>
 
                 </div>
@@ -194,7 +194,7 @@ var app = new Vue({
         encode: _.debounce(function () {
             var self = this
             axios
-                .post("https://api.base62.net/encode", {data: this.decoded})
+                .post("https://api.base85.net/encode", {data: this.decoded})
                 .then(function (response) {
                     self.encoded = response.data.encoded
                     self.$nextTick(function () {
@@ -209,7 +209,7 @@ var app = new Vue({
         decode: _.debounce(function () {
             var self = this
             axios
-                .post("https://api.base62.net/decode", {data: this.encoded})
+                .post("https://api.base85.net/decode", {data: this.encoded})
                 .then(function (response) {
                     self.decoded = response.data.decoded
                     self.$nextTick(function () {
