@@ -6,7 +6,7 @@ date_default_timezone_set("UTC");
 
 require "recipe/common.php";
 
-set("repository", "git@github.com:tuupola/base85.net.git");
+set("repository", "git@github.com:tuupola/base85.io.git");
 set("shared_files", [".env"]);
 set("shared_dirs", ["logs"]);
 set("writable_dirs", []);
@@ -21,7 +21,7 @@ server("www", "base62.net")
     //->user("deployer")
     ->password(null)
     ->set("branch", "master")
-    ->set("deploy_path", "/srv/www/base85.net");
+    ->set("deploy_path", "/srv/www/base85.io");
 
 #desc("Run tests");
 #task("test", function () {

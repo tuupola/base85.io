@@ -193,7 +193,7 @@ var app = new Vue({
         encode: _.debounce(function () {
             var self = this
             axios
-                .post("https://api.base85.net/encode", {data: this.decoded})
+                .post("https://api.base85.io/encode", {data: this.decoded})
                 .then(function (response) {
                     self.encoded = response.data.encoded
                     self.$nextTick(function () {
@@ -208,7 +208,7 @@ var app = new Vue({
         decode: _.debounce(function () {
             var self = this
             axios
-                .post("https://api.base85.net/decode", {data: this.encoded})
+                .post("https://api.base85.io/decode", {data: this.encoded})
                 .then(function (response) {
                     self.decoded = response.data.decoded
                     self.$nextTick(function () {
